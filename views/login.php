@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="../public/css/style.css">
-</head>
-<body>
-<header>
-    <h1>MVC Framework</h1>
-</header>
+<?php $title = 'Login';
+ob_start();
+?>
 <h2>Login Page</h2><br>
 <form id="login" method="get" action="login.php">
     <div class="container">
@@ -25,11 +14,5 @@
         <p>Haven't an account? <a href="#">Sign up</a>.</p>
     </div>
 </form>
-<footer>
-    <div class="container">
-        <hr>
-        <p class="pull-right">Dubov Studio 2021 <span>&copy</span></p>
-    </div>
-</footer>
-</body>
-</html>
+<?php $content = ob_get_clean();
+require_once('layout.php'); ?>
