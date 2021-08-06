@@ -1,21 +1,20 @@
 <?php $title = 'Posts';
+
+include_once('../posts_arr.php');
+
 ob_start();
 ?>
 <h2>List of posts</h2>
 <div class="container">
     <div class="row">
-        <div class="column">
-            <h2>Title 1</h2>
-            <p>Some text..</p>
-        </div>
-        <div class="column">
-            <h2>Title 2</h2>
-            <p>Some text..</p>
-        </div>
-        <div class="column">
-            <h2>Title 2</h2>
-            <p>Some text..</p>
-        </div>
+        <?php foreach ($posts as $post) : ?>
+            <div class="column">
+                <?php foreach ($post as $key => $value) : ?>
+                    <h3><?php echo $value; ?></h3>
+                <?php endforeach; ?>
+            </div>
+            <hr>
+        <?php endforeach; ?>
     </div>
 </div>
 <?php $content = ob_get_clean();
