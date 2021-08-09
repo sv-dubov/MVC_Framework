@@ -19,4 +19,4 @@ ob_start();
     </div>
 </form>
 <?php $content = ob_get_clean();
-require_once('layout.php'); ?>
+require_once('../App/Views/layouts/layout.php'); ?>
