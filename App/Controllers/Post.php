@@ -6,13 +6,11 @@ use Core\View;
 
 class Post extends \Core\Controller
 {
-    /**
-     * Show the index page
-     *
-     * @return void
-     */
     public function indexAction()
     {
-        View::render('Post/index.php');
+        $posts = \App\Models\Post::getAll();
+        View::render('Post/index.php', [
+            'posts' => $posts
+        ]);
     }
 }

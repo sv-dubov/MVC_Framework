@@ -1,6 +1,6 @@
 <?php $title = 'Posts';
 
-include_once('../posts_arr.php');
+//include_once('../posts_arr.php');
 
 ob_start();
 ?>
@@ -9,9 +9,9 @@ ob_start();
     <div class="row">
         <?php foreach ($posts as $post) : ?>
             <div class="column">
-                <?php foreach ($post as $key => $value) : ?>
-                    <h3><?php echo $value; ?></h3>
-                <?php endforeach; ?>
+                <h3><?php echo $post['title']; ?></h3>
+                <p><?php echo $post['content']; ?></p>
+                <p>Date: <i><?php echo $post['created_at']; ?></i></p>
             </div>
             <hr>
         <?php endforeach; ?>
