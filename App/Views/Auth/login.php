@@ -2,7 +2,7 @@
 ob_start();
 ?>
 <h2>Login Page</h2><br>
-<form id="login" method="get" action="login.php">
+<form id="login" method="post" action="/auth/enter">
     <div class="container">
         <label for="email"><b>Email</b></label>
         <input type="text" placeholder="Enter email" name="email" id="email" required>
@@ -11,7 +11,7 @@ ob_start();
         <button type="submit" class="registerBtn">Go!</button>
     </div>
     <div class="container signIn">
-        <p>Haven't an account? <a href="#">Sign up</a>.</p>
+        <p>Haven't an account? <a href="/auth/register">Sign up</a>.</p>
     </div>
 </form>
 <?php $content = ob_get_clean();

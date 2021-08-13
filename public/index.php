@@ -13,6 +13,11 @@ set_error_handler('Core\Error::errorHandler');
 set_exception_handler('Core\Error::exceptionHandler');
 
 /**
+ * Sessions
+ */
+session_start();
+
+/**
  * Routing
  */
 $router = new Core\Router();
@@ -20,5 +25,6 @@ $router = new Core\Router();
 // Add the routes
 $router->add('', ['controller' => 'Home', 'action' => 'index']);
 $router->add('{controller}/{action}');
+$router->add('logout', ['controller' => 'Auth', 'action' => 'logout']);
 
 $router->dispatch($_SERVER['QUERY_STRING']);
