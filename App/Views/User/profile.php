@@ -5,20 +5,26 @@ ob_start();
 <div class="container">
     <div class="row">
         <div>
-            <br><img src="../public/img/user.jpg" class="profile-image">
-            <form method="post" action="profile.php">
-                <input type="file" id="avatar" name="avatar">
+            <?php if (isset($_SESSION['user_id'])) : ?>
+                <dl>
+                    <dt>Name:</dt>
+                    <dd><?php echo $user->name; ?></dd>
+                    <dt>Email:</dt>
+                    <dd><?php echo $user->email; ?></dd>
+                </dl>
+            <?php endif; ?>
+        </div>
+        <div>
+            <?php if (!isset($user->image)) : ?>
+                <br><img src="../public/img/no-image.png" class="profile-image">
                 <hr>
-                <label for="username"><b>Username</b></label>
-                <input type="text" placeholder="Edit username" name="username" id="username">
-                <label for="email"><b>Email</b></label>
-                <input type="text" placeholder="Edit email" name="email" id="email">
-                <label for="password"><b>Password</b></label>
-                <input type="password" placeholder="Confirm or change password" name="password" id="password">
-                <button type="submit" class="registerBtn">Update</button>
-            </form>
+            <?php else : ?>
+                <br><img src="../public/uploads/<?php echo $user->image; ?>" class="profile-image">
+                <hr>
+            <?php endif; ?>
         </div>
     </div>
+    <a href="/user/edit">Edit Profile</a>
 </div>
 <?php $content = ob_get_clean();
 require_once('../App/Views/layouts/layout.php'); ?>

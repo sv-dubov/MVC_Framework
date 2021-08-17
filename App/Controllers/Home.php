@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Authentication;
 use Core\View;
 
 class Home extends \Core\Controller
@@ -13,6 +14,8 @@ class Home extends \Core\Controller
      */
     public function indexAction()
     {
-        View::render('Home/index.php');
+        View::render('Home/index.php', [
+            'user' => Authentication::getUser()
+        ]);
     }
 }

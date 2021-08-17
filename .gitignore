@@ -475,3 +475,6 @@ composer.lock
 
 #### Log files
 /logs/
+
+#### Uploads files
+/public/uploads/

@@ -89,3 +89,10 @@ a {
 .pull-right{
     text-align: right;
 }
+
+.profile-image{
+    vertical-align: middle;
+    width: 180px;
+    height: 180px;
+    border: double;
+}
